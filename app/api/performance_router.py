@@ -1,5 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import HTTPBearer 
 from datetime import timezone
+from app.auth.auth_service import verify_token
 from app.schema.performance_schemas import MatchIn, PerformanceOut, KdaOut
 from app.domain.player_id import PlayerId
 from app.domain.match_record import MatchRecord
@@ -7,6 +9,14 @@ from app.service.performance_service import PerformanceService
 
 router = APIRouter()
 service = PerformanceService()
+security = HTTPBearer()
+
+def auth_required(creddentials = Depends(security)):
+    token = creddentials.credentials
+    payload = verify_token(token)
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    return payload
 
 @router.post("/ingest", response_model=PerformanceOut)
 def ingest_match(payload: MatchIn):

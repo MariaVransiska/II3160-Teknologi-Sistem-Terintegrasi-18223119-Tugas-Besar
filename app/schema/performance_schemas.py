@@ -17,6 +17,13 @@ class KdaOut(BaseModel):
     deaths: int
     assists: int
     ratio: float
+    
+class SummaryOut(BaseModel):
+    kda: KdaOut
+    win_rate: float
+    accuracy: float
+    avg_score: float
+    trend: str
 
 class PerformanceOut(BaseModel):
     player_id: str

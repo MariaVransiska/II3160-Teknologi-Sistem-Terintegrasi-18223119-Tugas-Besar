@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from typing import List
+
 from app.domain.player_id import PlayerId
 from app.domain.kda import KDA
 from app.domain.performance_summary import PerformanceSummary
