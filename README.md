@@ -2,9 +2,6 @@
 ## Game Tracker - Performance Analytics API
 API FastAPI sederhana untuk mengelola performa pemain berdasarkan match record, dengan autentikasi JWT dasar dan beberapa router konteks (performance, profile, leaderboard, notification).
 
-## Daftar Isi 
-
-
 ## Deskripsi Repository:
 Implementasi API berbasis FastAPI untuk mencatat dan menganalisis performa pemain game. 
 Fitur Utama: 
