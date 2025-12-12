@@ -12,6 +12,7 @@ Fitur Utama:
 - Autentikasi JWT dasar untuk proteksi endpoint.
 
 ## Struktur Repository:
+```
 app/
 │── main.py
 │
@@ -40,6 +41,36 @@ app/
 │
 └── schema/
     ├── performance_schemas.py
+```
+
+## Endpoint dan Deskripsi
+- GET `/` (Root)
+  - Menyediakan status API. Response: `{ "msg": "Game Tracker Performance Analytics API" }`
+  - Sumber: `app/main.py`
+
+- POST `/performance/ingest`
+  - Input: `MatchIn` (match_id, player_id, game_name, kills, deaths, assists, score, accuracy, timestamp).
+  - Proses: membuat/menemukan `PlayerPerformance`, menambah riwayat match, menghitung ulang `PerformanceSummary` (KDA, accuracy, avg_score, trend, win_rate), dan mengembalikan agregat terbaru.
+  - Output: `PerformanceOut` berisi `player_id`, `summary` (mapping dari `PerformanceSummary` dan `KDA`), `last_updated`.
+  - Sumber: `app/api/performance_router.py` -> `ingest_match`, `app/service/performance_service.py`.
+
+- GET `/performance/performance/{player_id}`
+  - Mengambil `PlayerPerformance` yang sudah teragregasi untuk `player_id` tertentu.
+  - Output: `PerformanceOut` sama seperti di endpoint ingest.
+  - Sumber: `app/api/performance_router.py` -> `get_performance`.
+
+- GET `/profile/`
+  - Stub untuk data profil pemain. Sumber: `app/api/player_profile_router.py`.
+
+- GET `/leaderboard/`
+  - Stub leaderboard. Sumber: `app/api/leaderboard_router.py`.
+
+- GET `/notification/`
+  - Stub notifikasi. Sumber: `app/api/notification_router.py`.
+
+- POST `/auth/login`
+  - Menghasilkan JWT untuk akses endpoint terlindungi.
+  - Sumber: `app/auth/auth_router.py`, `app/auth/auth_service.py`.
 
 ## Cara Setup dan Run
 (nanti dibuat)
