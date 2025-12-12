@@ -1,5 +1,5 @@
 import jwt 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 SECRET_KEY = "super-secret-key"
 ALGORITHM = "HS256"
@@ -16,7 +16,7 @@ def authenticate_user(username: str, password: str):
     return None
 
 def create_token(payload: dict):
-    expire = datetime.utcnow() + timedelta(hours=2)
+    expire = datetime.now(timezone.utc) + timedelta(hours=2)
     payload.update({"exp": expire})
     token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
     return token

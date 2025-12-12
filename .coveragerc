@@ -1,0 +1,10 @@
+[run]
+omit =
+    app/domain/external_game_account.py
+    app/domain/external_player_id.py
+    app/domain/metric.py
+    app/domain/performance_updated.py
+
+[report]
+show_missing = True
+skip_covered = False

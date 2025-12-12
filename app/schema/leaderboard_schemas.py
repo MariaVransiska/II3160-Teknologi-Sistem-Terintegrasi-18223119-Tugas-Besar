@@ -1,16 +1,5 @@
 from pydantic import BaseModel
-from datetime import datetime
-
-class MatchIn(BaseModel):
-    match_id: str
-    player_id: str
-    game_name: str
-    kills: int
-    deaths: int
-    assists: int
-    score: float
-    accuracy: float
-    timestamp: datetime
+from typing import Optional
 
 class KdaOut(BaseModel):
     kills: int
@@ -25,7 +14,7 @@ class SummaryOut(BaseModel):
     avg_score: float
     trend: str
 
-class PerformanceOut(BaseModel):
+class LeaderboardItem(BaseModel):
     player_id: str
     summary: SummaryOut
-    last_updated: datetime | None
+    last_updated: Optional[str] = None

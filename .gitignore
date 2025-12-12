@@ -1,1 +1,28 @@
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
 venv/
+
+# Test/coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Env/secrets
+.env
+
+# Docker local extras (image layers not tracked anyway)
+*.local
+
+# Linter cache
+.ruff_cache/

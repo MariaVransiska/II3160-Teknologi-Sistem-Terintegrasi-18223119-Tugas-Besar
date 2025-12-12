@@ -19,7 +19,7 @@ def auth_required(creddentials = Depends(security)):
     return payload
 
 @router.post("/ingest", response_model=PerformanceOut)
-def ingest_match(payload: MatchIn):
+def ingest_match(payload: MatchIn, _auth = Depends(auth_required)):
     player_id = PlayerId(payload.player_id)
     match = MatchRecord(
         match_id=payload.match_id,
@@ -60,7 +60,7 @@ def ingest_match(payload: MatchIn):
     }
 
 @router.get("/performance/{player_id}", response_model=PerformanceOut)
-def get_performance(player_id: str):
+def get_performance(player_id: str, _auth = Depends(auth_required)):
     perf = service.get_performance(player_id)
     if not perf or not perf.performance_summary:
         raise HTTPException(status_code=404, detail="player performance not found")
