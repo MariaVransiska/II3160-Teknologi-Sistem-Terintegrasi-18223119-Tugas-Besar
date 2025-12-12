@@ -1,3 +1,5 @@
+![CI Status](https://github.com/MariaVransiska/II3160-Teknologi-Sistem-Terintegrasi-18223119-Tugas-Besar/blob/main/.github/workflows/ci.yml/badge.svg)
+
 # Tugas Besar II3160 Teknologi Sistem Terintegrasi
 Nama  : Maria Vransiska Pingkhan
 NIM   : 18223119 
