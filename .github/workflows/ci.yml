@@ -1,5 +1,5 @@
+// filepath: /Users/apple/II3160-Teknologi-Sistem-Terintegrasi-18223119-Tugas-Besar/.github/workflows/ci.yml
 name: CI
-
 on:
   push:
   pull_request:
@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -23,7 +22,7 @@ jobs:
       - name: Lint (ruff)
         run: ruff check .
 
-      - name: Run tests with coverage
+      - name: Test
         run: python -m pytest
 
   docker-build:
