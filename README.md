@@ -67,4 +67,10 @@ README.md
 1. Install dependencies: pip3 install -r requirements.txt
 2. Test: python3 -m pytest
 3. Run server: python3 -m uvicorn app.main:app –reload
-4. URL Swagger: http://localhost:8000/docs 
+4. URL Swagger: http://localhost:8000/docs {local}
+5. URL Deploy: https://gametracker-mar.vercel.app/docs 
+
+## Checklist
+- [x] CI (lint + test + docker build)
+- [x] Coverage ≥95%
+- [x] Deploy online (Vercel) → https://gametracker-mar.vercel.app/docs 

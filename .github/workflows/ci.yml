@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
   pull_request:
@@ -22,8 +23,8 @@ jobs:
       - name: Lint (ruff)
         run: ruff check .
 
-      - name: Test
-        run: python -m pytest
+      - name: Test (pytest)
+        run: python -m pytest -q
 
   docker-build:
     runs-on: ubuntu-latest
