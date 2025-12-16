@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import HTTPBearer 
-from datetime import timezone
 from app.auth.auth_service import verify_token
-from app.schema.performance_schemas import MatchIn, PerformanceOut, KdaOut
+from app.schema.performance_schemas import MatchIn, PerformanceOut
 from app.domain.player_id import PlayerId
 from app.domain.match_record import MatchRecord
 from app.service.performance_service import PerformanceService
